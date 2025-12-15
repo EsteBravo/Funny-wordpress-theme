@@ -1,0 +1,413 @@
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+}
+
+/* ----- SECTION HERO ----- */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Fond jaune haut-gauche */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #F2C403; /* jaune */
+    clip-path: polygon(0 0, 100% 0, 0 60%);
+}
+
+/* Fond turquoise diagonal */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #017E89; /* turquoise */
+    clip-path: polygon(0 60%, 100% 0, 100% 70%, 0 100%);
+}
+
+/* Fond jaune bas-droite */
+.triangle-bas {
+    position: absolute;
+    inset: 0;
+    background: #F2C403; /* jaune */
+    clip-path: polygon(100% 100%, 0 100%, 100% 40%);
+}
+
+/* ----- CONTENU ----- */
+
+.hero-content {
+    position: relative;
+    z-index: 10; /* au-dessus du fond */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 250px;
+    padding: 0 100px;
+}
+
+/* Image de la canette */
+.hero-can {
+    width: 200px;
+}
+
+/* Texte */
+.hero-text {
+    max-width: 480px;
+    color: white;
+    margin-top: 30px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    font-weight: bold;
+}
+
+/* Bouton */
+.btn {
+    margin-top: 25px;
+    display: inline-block;
+    background: #F2C403;
+    padding: 14px 30px;
+    border-radius: 12px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 900px) {
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+    }
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-can {
+        width: 220px;
+    }
+}
+
+
+
+
+/* Canette du hero : doit être en position absolute */
+.hero-can {
+    transition: transform 0.1s linear, opacity 0.3s ease;
+    z-index: 10;
+}
+
+/* Canette de la section A propos (elle apparaît à l’arrivée) */
+.apropos-can {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.hero {
+    position: relative;
+}
+
+
+
+
+
+/* ------------------- */
+/* SECTION A PROPOS */
+/* ------------------- */
+
+.apropos {
+    background: #017E89; /* turquoise */
+    padding: 80px 60px 120px;
+    position: relative;
+    color: white;
+}
+
+/* Grand cercle jaune */
+.apropos-circle {
+    position: absolute;
+    bottom: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F2C403;
+    width: 450px;
+    height: 250px;
+    border-radius: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apropos-circle h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Contenu texte + image */
+.apropos-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 150px;
+}
+
+/* Texte */
+.apropos-text {
+    width: 55%;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Image */
+.apropos-can {
+    width: 200px;
+    padding-right: 20px;
+}
+
+/* Bouton */
+.btn-yellow {
+    display: inline-block;
+    margin-top: 30px;
+    background: #F2C403;
+    padding: 14px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+    .apropos-content {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 200px;
+    }
+
+    .apropos-text {
+        width: 100%;
+    }
+
+    .apropos-can {
+        margin-top: 40px;
+        width: 240px;
+    }
+
+    .apropos-circle {
+        width: 320px;
+        height: 320px;
+        top: -80px;
+    }
+
+    .apropos-circle h2 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+/* PRODUITS */
+
+.produits {
+    padding: 90px;
+    background: no-repeat;
+    background-size: 1550px 500px;
+}
+
+
+.produits-list {
+    padding-top: 100px;   
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* important pour éviter le décalage vertical */
+    height: 300px; 
+}
+
+.produits-list a {  
+    display: block;
+    width: 150px;        /* largeur fixe */
+    height: 250px;       /* hauteur fixe correspondant à tes images */
+    overflow: hidden;    /* empêche le scale de dépasser le conteneur */
+    text-decoration: none;
+}
+
+.produits-list a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* préserve les proportions */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.produits-list a img:hover {
+    transform: scale(1.05);
+    transform-origin: center center; /* scale depuis le centre */
+}
+
+
+
+
+/*Commande*/
+
+.order-section {
+    background: #e8b800;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.order-title {
+    font-size: 60px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.order-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+.order-image img {
+    width: 280px;
+    max-width: 100%;
+}
+
+.order-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 420px;
+    text-align: left;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.order-box p {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+    line-height: 1.35em;
+    margin-bottom: 35px;
+}
+
+.order-btn {
+    display: inline-block;
+    background: #f0b800;
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    transition: 0.2s ease-in-out;
+}
+
+.order-btn:hover {
+    transform: scale(1.06);
+}
+
+
+
+
+
+
+
+/* CONTACT */
+
+.contact-section {
+    background: #007980;
+    padding: 100px 50px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 60px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-text {
+    max-width: 380px;
+    text-align: left;
+}
+
+.contact-text h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.3em;
+}
+
+.contact-text p {
+    margin-bottom: 25px;
+    font-size: 22px;
+    line-height: 1.35em;
+}
+
+/* FORMULAIRE */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 450px;
+    max-width: 100%;
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.contact-btn {
+    background: #f4c300;
+    color: #000;
+    border: none;
+    padding: 16px 40px;
+    font-size: 26px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 10px;
+    transition: .2s ease-in-out;
+}
+
+.contact-btn:hover {
+    transform: scale(1.07);
+}
